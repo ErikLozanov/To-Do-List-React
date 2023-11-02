@@ -11,9 +11,6 @@ export default function ToDoList({todos, onClickHandler}) {
     <button className="btn">+ Add new Todo</button>
   </div>
   <div className="table-wrapper">
-    {/* Loading spinner - show the load spinner when fetching the data from the server*/}
-
-    {/* Todo list table */}
     <table className="table">
       <thead>
         <tr>
