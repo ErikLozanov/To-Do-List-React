@@ -18,9 +18,7 @@ function App() {
         .catch(err => console.log(err.message))
       },[])
 
-
       const onClickHandler = async (todoId) => {
-
         setTodos(state => state.map((todo) => todo._id === todoId ? {...todo, isCompleted: !todo.isCompleted} : todo));
         const changedTodo = todos.find(todo => todo._id === todoId);
         const body = {
@@ -32,12 +30,16 @@ function App() {
        await fetch(`http://localhost:3030/jsonstore/todos/${todoId}`,{method: 'PUT', body: JSON.stringify(body)})
     }
 
+    const addTodo = (todo) => {
+      setTodos(() => [...todos, todo]);
+    }
+
   return (
     <>
     {!isTodosLoaded && <Spinner />}
-    <Header />
+      <Header />
     <main className="main">
-      <ToDoList todos={todos} onClickHandler={onClickHandler} />
+      <ToDoList todos={todos} onClickHandler={onClickHandler} addTodo={addTodo}/>
       <Footer />
     </main>
     </>
