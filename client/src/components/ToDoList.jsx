@@ -1,6 +1,9 @@
 import Todo from "./Todo";
 
-export default function ToDoList({todos}) {
+export default function ToDoList({todos, onClickHandler}) {
+  
+
+
     return(
         <section className="todo-list-container">
   <h1>Todo List</h1>
@@ -20,7 +23,7 @@ export default function ToDoList({todos}) {
         </tr>
       </thead>
       <tbody>
-        {todos.map((todo) => <Todo key={todo._id} todo={todo}/>)}
+        {todos.map((todo) => <Todo key={todo._id} todo={todo} onClickHandler={onClickHandler}/>)}
       </tbody>
     </table>
   </div>
