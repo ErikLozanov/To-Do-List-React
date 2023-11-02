@@ -1,4 +1,6 @@
-export default function ToDoList() {
+import Todo from "./Todo";
+
+export default function ToDoList({todos}) {
     return(
         <section className="todo-list-container">
   <h1>Todo List</h1>
@@ -18,78 +20,7 @@ export default function ToDoList() {
         </tr>
       </thead>
       <tbody>
-        {/* Todo item */}
-        <tr className="todo is-completed">
-          <td>Give dog a bath</td>
-          <td>Complete</td>
-          <td className="todo-action">
-            <button className="btn todo-btn">Change status</button>
-          </td>
-        </tr>
-        {/* Todo item */}
-        <tr className="todo is-completed">
-          <td>Do laundry</td>
-          <td>Complete</td>
-          <td className="todo-action">
-            <button className="btn todo-btn">Change status</button>
-          </td>
-        </tr>
-        {/* Todo item */}
-        <tr className="todo">
-          <td>Vacuum floor</td>
-          <td>Incomplete</td>
-          <td className="todo-action">
-            <button className="btn todo-btn">Change status</button>
-          </td>
-        </tr>
-        {/* Todo item */}
-        <tr className="todo is-completed">
-          <td>Feed cat</td>
-          <td>Complete</td>
-          <td className="todo-action">
-            <button className="btn todo-btn">Change status</button>
-          </td>
-        </tr>
-        {/* Todo item */}
-        <tr className="todo">
-          <td>Change light bulbs</td>
-          <td>Incomplete</td>
-          <td className="todo-action">
-            <button className="btn todo-btn">Change status</button>
-          </td>
-        </tr>
-        {/* Todo item */}
-        <tr className="todo is-completed">
-          <td>Feed cat</td>
-          <td>Complete</td>
-          <td className="todo-action">
-            <button className="btn todo-btn">Change status</button>
-          </td>
-        </tr>
-        {/* Todo item */}
-        <tr className="todo">
-          <td>Change light bulbs</td>
-          <td>Incomplete</td>
-          <td className="todo-action">
-            <button className="btn todo-btn">Change status</button>
-          </td>
-        </tr>
-        {/* Todo item */}
-        <tr className="todo is-completed">
-          <td>Go to Store</td>
-          <td>Completed</td>
-          <td className="todo-action">
-            <button className="btn todo-btn">Change status</button>
-          </td>
-        </tr>
-        {/* Todo item */}
-        <tr className="todo">
-          <td>Fill gas tank</td>
-          <td>Incomplete</td>
-          <td className="todo-action">
-            <button className="btn todo-btn">Change status</button>
-          </td>
-        </tr>
+        {todos.map((todo) => <Todo key={todo._id} todo={todo}/>)}
       </tbody>
     </table>
   </div>
