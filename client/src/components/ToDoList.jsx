@@ -13,6 +13,7 @@ export default function ToDoList({todos, onClickHandler, addTodo}) {
       e.preventDefault();
       addTodo(todo)
       await fetch('http://localhost:3030/jsonstore/todos',{method: 'POST', body: JSON.stringify({...todo, isCompleted: false})})
+
     }
 
     return(
