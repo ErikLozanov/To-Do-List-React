@@ -19,8 +19,17 @@ function App() {
       },[])
 
 
-      const onClickHandler = (todoId) => {
+      const onClickHandler = async (todoId) => {
+
         setTodos(state => state.map((todo) => todo._id === todoId ? {...todo, isCompleted: !todo.isCompleted} : todo));
+        const changedTodo = todos.find(todo => todo._id === todoId);
+        const body = {
+          isCompleted: !changedTodo.isCompleted,
+          text: changedTodo.text,
+          _id: changedTodo._id,
+        }
+        console.log(JSON.stringify(body));
+       await fetch(`http://localhost:3030/jsonstore/todos/${todoId}`,{method: 'PUT', body: JSON.stringify(body)})
     }
 
   return (
